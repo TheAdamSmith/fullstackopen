@@ -9,7 +9,7 @@ Assignments for the Full Stack Development Course offered by the Univeristy of H
 
 Javascript-based web development using Node.js, React, MogoDB, Redux, GraphQL, and TypeScript
 
-## install 
+## Install 
 
 There are several different projects in here, but any of them can be install with 
 
