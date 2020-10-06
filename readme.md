@@ -23,7 +23,7 @@ Builds on Part 1 by adding communication to a server from the frontend
 ## Part 3: Programming a Server with NodeJS and Express
 Full stack development, building a server, connecting it to frontend, and MongoDB
 
-## Part 4: Testing Express Servers and User Adminstration (in progress)
+## Part 4: Testing Express Servers and User Adminstration 
 Covers unit and integration testing of the backend as well as user authentication
 
 ## Thank You!
