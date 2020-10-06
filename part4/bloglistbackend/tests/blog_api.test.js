@@ -3,21 +3,29 @@ const supertest = require('supertest')
 const app = require('../app')
 const helper = require('./api_test_helper')
 const Blog = require('../models/blog')
+const User = require('../models/user')
 
 const api = supertest(app)
 
 beforeEach(async () =>{
     await Blog.deleteMany({})
+    await User.deleteMany({})
+    const response = 
+        await api
+        .post('/api/users/')
+        .send(helper.initialUser)
 
+    user = response.body
     for(let blog of helper.initialBlogs) {
         let blogObject = new Blog(blog)
+        blogObject.user = user.id
         await blogObject.save()
     }
 })
 
 describe('api', ()=> {
     test('blogs are returned as json', async () => {
-    await api
+    const response = await api
         .get('/api/blogs')
         .expect(200)
         .expect('Content-Type', /application\/json/)
@@ -39,10 +47,31 @@ describe('api', ()=> {
             expect(blog.id.toBeDefined))
     })
 
+    test('a user can login with token', async () => {
+        const reponse = 
+            await api
+            .post('/api/login')
+            .send(helper.initialUser)
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+
+        const logUser = reponse.body     
+
+        expect(logUser.token).toBeTruthy();
+    })
     test('post adds a new blog', async () => {
+        const response = 
+            await api
+            .post('/api/login')
+            .send(helper.initialUser)
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+        const logUser = response.body
+
         const newBlog  = {title: "New Blog", author: "test", url: "https://reactpatterns.com/", likes: 6}
         await api
             .post('/api/blogs')
+            .set({'Authorization': `bearer ${logUser.token}`})
             .send(newBlog)
             .expect(200)
             .expect('Content-Type', /application\/json/)
@@ -55,9 +84,18 @@ describe('api', ()=> {
     })
 
     test('blog with no likes gets zero likes', async () => {
+        const reponse = 
+            await api
+            .post('/api/login')
+            .send(helper.initialUser)
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+        const logUser = reponse.body
+
         const newBlog  = {title: "New Blog", author: "test", url: "https://reactpatterns.com/"}
         await api
             .post('/api/blogs')
+            .set({'Authorization': `bearer ${logUser.token}`})
             .send(newBlog)
             .expect(200)
             .expect('Content-Type', /application\/json/)
@@ -82,11 +120,21 @@ describe('api', ()=> {
     })
 
     test('a blog can be deleted', async () => {
+
+        const reponse = 
+            await api
+            .post('/api/login')
+            .send(helper.initialUser)
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+        const logUser = reponse.body
+
         const blogsAtStart = await helper.blogsInDb()
         const blogToDelete = blogsAtStart[0]
 
         await api
           .delete(`/api/blogs/${blogToDelete.id}`)
+          .set({'Authorization': `bearer ${logUser.token}`})
           .expect(204)
       
         const blogsAtEnd = await helper.blogsInDb()
