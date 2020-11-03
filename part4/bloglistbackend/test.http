@@ -1,14 +1,14 @@
-POST http://localhost:3003/api/login HTTP/1.1
+POST http://localhost:3001/api/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "Awwdamn",
-    "name": "Adam Smith",
-    "password": "passs"
+    "username": "test",
+    "name": "test",
+    "password": "test"
 }
 
 ###
-POST http://localhost:3003/api/blogs HTTP/1.1
+POST http://localhost:3001/api/blogs HTTP/1.1
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkF3d2RhbW4iLCJpZCI6IjVmNzU5MWI4NzQzYjczMTBlYWIwOTUxMyIsImlhdCI6MTYwMTkwOTQ0MH0.rDM2jVyXtQBdvHplqK1P1QE7D2InvOCjIpVRE5a4LFU
 
@@ -18,7 +18,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkF3d
     "author": "Adam Smith",
     "url": "someurl.com",
     "likes": "10",
-    "userId": "5f7591b8743b7310eab09513"
+    "userId": "5fa17073e08b910a55f7b4df"
 }
 
 ###
