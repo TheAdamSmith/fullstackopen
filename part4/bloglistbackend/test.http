@@ -10,7 +10,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3001/api/blogs HTTP/1.1
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkF3d2RhbW4iLCJpZCI6IjVmNzU5MWI4NzQzYjczMTBlYWIwOTUxMyIsImlhdCI6MTYwMTkwOTQ0MH0.rDM2jVyXtQBdvHplqK1P1QE7D2InvOCjIpVRE5a4LFU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjVmYTE3MDczZTA4YjkxMGE1NWY3YjRkZiIsImlhdCI6MTYwNDQxNTc4MX0.jZuiH3eGliLpONem1YfRHqOl31UJ8u7OsFoE1LadIcI
 
 
 {
