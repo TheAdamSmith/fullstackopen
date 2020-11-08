@@ -35,5 +35,9 @@ Full stack development, building a server, connecting it to frontend, and MongoD
 ## Part 4: Testing Express Servers and User Adminstration 
 Covers unit and integration testing of the backend as well as user authentication
 
+## Part 5: Testing React apps
+Covers front end token authentication, unit testing of react apps, and end to end testing with cypress
+
+
 ## Thank You!
 A big thanks to Matt Luukainen and University of Helsinki for the development of this amazing course for free

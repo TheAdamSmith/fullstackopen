@@ -18,14 +18,17 @@ Development
 ```bash
 npm run dev
 ```
+
 Production
 ```bash
 npm start
 ```
+
 Test (Jest)
 ```bash
 npm run test
 ```
+
 Test (Cypress)
 ```bash
 npm run start:test
