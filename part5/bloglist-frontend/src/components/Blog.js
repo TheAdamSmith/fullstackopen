@@ -28,11 +28,11 @@ const Blog = ({
         {blog.title} {blog.author}
         <button onClick={toggleVisibility}>view</button>
       </div>
-      <div style={showWhenVisible}>
+      <div id="fullBlog" className='togglableContent' style={showWhenVisible}>
         <button onClick={toggleVisibility}>hide</button>
         <p>{blog.title}: {blog.author}</p>
         <p>{blog.url}</p>
-        <p>
+        <p id="likes">
           likes {blog.likes}
           <button id={blog.id} onClick={handleLike}>like</button>
         </p>
