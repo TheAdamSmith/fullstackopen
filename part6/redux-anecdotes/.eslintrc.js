@@ -48,6 +48,7 @@ module.exports = {
   'settings': {
     'react': {
       'version': 'detect'
-    }
-  }
+    },
+    'defaultSeverity': 'warning',
+  },
 }

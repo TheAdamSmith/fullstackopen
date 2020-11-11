@@ -38,6 +38,8 @@ Covers unit and integration testing of the backend as well as user authenticatio
 ## Part 5: Testing React apps
 Covers front end token authentication, unit testing of react apps, and end to end testing with cypress
 
+## Part 6: State Management with Redux
+How to refactor state management outside of react components using redux. Covers both "new" redux with useSelector and useDispatch as well as "old" redux with connect.
 
 ## Thank You!
 A big thanks to Matt Luukainen and University of Helsinki for the development of this amazing course for free
