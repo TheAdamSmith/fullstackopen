@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-
+import {
+  Link
+} from 'react-router-dom'
 import {
   likeBlog,
   deleteBlog,
@@ -52,7 +54,9 @@ const Blog = ({
   return(
     <div style={blogStyle}>
       <div style={hiddenWhenVisible}>
-        {blog.title} {blog.author}
+        <Link to={`/blogs/${blog.id}`} >
+          {blog.title} {blog.author}
+        </Link>
         <button onClick={toggleVisibility}>view</button>
       </div>
       <div id="fullBlog" className='togglableContent' style={showWhenVisible}>

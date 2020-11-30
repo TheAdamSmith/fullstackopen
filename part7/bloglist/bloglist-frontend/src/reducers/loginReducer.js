@@ -2,11 +2,12 @@ import loginService from '../services/login'
 import blogService from '../services/blogs'
 import { setError } from './notificationReducer'
 
-const loginReducer = (
-  state = null, action) => {
+const loginReducer = (state = null, action) => {
   switch (action.type) {
   case('LOGIN'):
+  {
     return action.user
+  }
   case ('LOGOUT'):
     return null
   default:
